@@ -13,7 +13,11 @@
 NAME = ft_select
 FLAGS = -Werror -Wall -Wextra
 TERMCAPS = -ltermcap
-SRCS = main.c 
+SRCS =  srcs/main.c \
+		srcs/my_putchar.c \
+		srcs/list.c \
+		srcs/ft_memalloc.c \
+		srcs/ft_memset.c
 
 OBJ = $(SRCS:.c=.o)
 CC = gcc
