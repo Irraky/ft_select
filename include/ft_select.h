@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 11:41:37 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 18:39:04 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/02 19:23:37 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void		top_or_bottom(char *key, t_env *env);
 void		select_one(t_env *env);
 void		select_all(t_env *env);
 void		unselect_all(t_env *env);
-void		erase(t_env *env);
-
+void		erase_elem(t_env *env);
+void		recover_elem(t_env *env);
 
 /*
 ** LIB_FUNCTIONS
