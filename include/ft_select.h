@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 11:41:37 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 16:24:26 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/02 17:13:02 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ typedef struct			s_elem
 typedef struct			s_env
 {
 	struct s_elem		*first;
+	struct s_elem		*cursor;
+	char				*last_suppr;
 	struct termios		*data;
 }						t_env;
 
@@ -64,6 +66,13 @@ int			clear(void);
 void		read_me(void);
 void		print_elem(t_elem *first);
 int			voir_touche(t_elem *first);
+
+/*
+** KEY_FUNCTIONS
+*/
+
+void		up_or_down(char *buffer, t_env *env);
+void		top_or_buttom(char *buffer, t_env *env);
 
 /*
 ** LIB_FUNCTIONS

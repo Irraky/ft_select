@@ -6,7 +6,7 @@
 #    By: drecours <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/29 10:51:51 by drecours          #+#    #+#              #
-#    Updated: 2017/10/02 13:26:36 by drecours         ###   ########.fr        #
+#    Updated: 2017/10/02 17:07:42 by drecours         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,8 @@ SRCS =  srcs/main.c \
 		srcs/list.c \
 		srcs/ft_memalloc.c \
 		srcs/ft_memset.c \
-		srcs/ft_select.c
+		srcs/ft_select.c \
+		srcs/ft_move.c
 
 OBJ = $(SRCS:.c=.o)
 CC = gcc

@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 13:16:58 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 16:37:07 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:45:10 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ void		ft_select(char **av, t_env *env)
 
 	first = list(av);
 	env->first = first;
+	env->cursor = first;
 	clear();
 	read_me();
 	print_elem(first);
-	voir_touche(first);
+	voir_touche(env);
 }
