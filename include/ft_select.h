@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 11:41:37 by drecours          #+#    #+#             */
-/*   Updated: 2017/09/29 14:58:25 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:24:26 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,19 @@
 #define ARROW 27
 #define UP 65
 #define DOWN 66
-#define SPACE 32
+#define LEFT 68
+#define RIGHT 67
+#define W 119
+#define S 115
 #define RETURN 10
 #define ESC 27
 #define BACKSPACE 126
 #define DEL 127
-#define CTRLD 4
+#define R 114
 #define A 97
-#define N 110
-#define E 101
+#define D 100
+#define SPACE 32
+#define CTRLD 4
 
 
 #include <termios.h>
@@ -55,6 +59,11 @@ typedef struct			s_env
 */
 
 t_elem		*list(char **av);
+void		ft_select(char **av, t_env *env);
+int			clear(void);
+void		read_me(void);
+void		print_elem(t_elem *first);
+int			voir_touche(t_elem *first);
 
 /*
 ** LIB_FUNCTIONS

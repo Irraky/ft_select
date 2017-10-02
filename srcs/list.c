@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/10/02 13:13:41 by drecours          #+#    #+#             */
+/*   Updated: 2017/10/02 13:16:08 by drecours         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/ft_select.h"
 #include <stdio.h>
@@ -33,6 +44,11 @@ t_elem			*list(char **av)
 		elem = new_elem(elem, *av);
 		av++;
 	}
-	elem->next = first;
+	if (first)
+	{
+		first->cursor = 1;
+		elem->next = first;
+		first->prev = elem;
+	}
 	return (first);
 }
