@@ -52,6 +52,7 @@ typedef struct			s_env
 {
 	struct s_elem		*first;
 	struct s_elem		*cursor;
+	struct s_elem		*bfr_suppr;;
 	char				*last_suppr;
 	struct termios		*data;
 }						t_env;
