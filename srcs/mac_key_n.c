@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:50:00 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 19:30:45 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/02 19:33:34 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,11 @@ static void		key_that(char key[3], t_env *env)
 		select_all(env);
 	else if (key[0] == D)
 		unselect_all(env);
-	printf("COIN\n");
 }
 
 int				manage_all(t_env *env)
 {
 	char	buffer[3];
-	t_elem	*cur;
 
 	while (1)
 	{
@@ -56,16 +54,6 @@ int				manage_all(t_env *env)
 			clear();
 			read_me();
 			print_elem(env->first);
-			cur = env->first;
-			if (cur->cursor == 1)
-				printf("|%s|\n", cur->name);
-			cur = cur->next;
-			while (cur != env->first)
-			{
-				if (cur->cursor == 1)
-					printf("|%s|\n", cur->name);
-				cur = cur->next;
-			}
 			key_that(buffer, env);
 		}
 
