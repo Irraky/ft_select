@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 13:41:34 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 17:13:29 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/02 18:15:38 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,51 +21,6 @@ int		clear(void)
 		return (-1);
 	tputs(res, 1, &my_putchar);
 	return (1);
-}
-
-void	key_that(char key[3], t_env *env)
-{
-	if (key[0] == CTRLD)
-		printf("Ctrl+d, quit !\n");
-	else if (key[0] == ARROW && (key[2] == UP || key[2] == DOWN))
-		up_or_down(key, env);
-	else if (key[0] == W || (key[0] == ARROW && key[2] == LEFT) ||
-			key[0] == S || (key[0] == ARROW && key[2] == RIGHT))
-		top_or_bottom(key, env);
-	else if (key[0] == RETURN)
-		printf("RETURN\n");
-	else if (key[0] == ESC)
-		printf("ESC\n");
-	else if (key[0] == BACKSPACE)
-		printf("Ctrl+d, quit !\n");
-	else if (key[0] == DEL)
-		printf("Ctrl+d, quit !\n");
-	else if (key[0] == R)
-		printf("Ctrl+d, quit !\n");
-	else if (key[0] == A)
-		printf("Ctrl+d, quit !\n");
-	else if (key[0] == D)
-		printf("Ctrl+d, quit !\n");
-	else if (key[0] == SPACE)
-		printf("Ctrl+d, quit !\n");
-}
-
-int		voir_touche(t_env *env)
-{
-	char	buffer[3];
-	while (1)
-	{	
-		buffer[0] = '\0';
-		buffer[1] = '\0';
-		buffer[2] = '\0';
-		if (read(0, buffer, 3) < 0)
-			return (-1);
-		clear();
-		read_me();
-		print_elem(first);
-		key_that(buffer, env);
-	}
-	return (0);
 }
 
 void	reset_shell(t_env *env)
@@ -107,7 +62,7 @@ int		main(int ac, char **av)
 		if (init_shell(&env) == -1)
 			return (-1);
 		env.last_suppr = NULL;
-		ft_select(&av[1], &env);
+		init_win(&av[1], &env);
 		reset_shell(&env);
 	}
 	else

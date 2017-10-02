@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 11:41:37 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 17:13:02 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/02 18:39:04 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,18 +61,23 @@ typedef struct			s_env
 */
 
 t_elem		*list(char **av);
-void		ft_select(char **av, t_env *env);
+void		init_win(char **av, t_env *env);
 int			clear(void);
 void		read_me(void);
 void		print_elem(t_elem *first);
-int			voir_touche(t_elem *first);
 
 /*
 ** KEY_FUNCTIONS
 */
 
-void		up_or_down(char *buffer, t_env *env);
-void		top_or_buttom(char *buffer, t_env *env);
+int			manage_all(t_env *env);
+void		up_or_down(char *key, t_env *env);
+void		top_or_bottom(char *key, t_env *env);
+void		select_one(t_env *env);
+void		select_all(t_env *env);
+void		unselect_all(t_env *env);
+void		erase(t_env *env);
+
 
 /*
 ** LIB_FUNCTIONS

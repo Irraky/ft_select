@@ -1,45 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select.c                                        :+:      :+:    :+:   */
+/*   ft_erase.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/02 18:00:28 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 18:13:31 by drecours         ###   ########.fr       */
+/*   Created: 2017/10/02 18:20:43 by drecours          #+#    #+#             */
+/*   Updated: 2017/10/02 19:03:05 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_select.h"
+#include <stdio.h>
 
-void	select_one(t_env *env)
+void		erase(t_env *env)
 {
-	env->cursor->select = 1;
-	env->cursor = env->cursor->next;
-}
+	t_elem		*elem;
+	t_elem		*prev;
 
-void	select_all(t_env *env)
-{
-	t_elem	*elem;
-
-	elem = env->cursor->next;
-	env->cursor->select = 1;
-	while (elem != env->cursor)
+	if (env->cursor != env->cursor->next)
 	{
-		elem->cursor = 1;
-		elem = elem->next;
+		elem = env->cursor;
+		prev = elem->prev;
+		env->last_suppr = elem->name;
+		elem->next->cursor = 1;
+		env->cursor = elem->next;
+		env->cursor->prev = prev;
+		prev->next = env->cursor;
+		free(elem);
+		elem = NULL;
 	}
-}
-
-void	unselect_all(t_env *env)
-{
-	t_elem	*elem;
-
-	elem = env->cursor->next;
-	env->cursor->select = 0;
-	while (elem != env->cursor)
+	else
 	{
-		elem->cursor = 0;
-		elem = elem->next;
+		free(env->cursor);
+		env->cursor = NULL;
+		exit (-1);
 	}
 }
