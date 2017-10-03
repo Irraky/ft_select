@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 11:41:37 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 19:23:37 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/03 15:42:01 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 #define SPACE 32
 #define CTRLD 4
 
+#define RED "\033[0;31m"
+#define ENd "\e[0m"
 
 #include <termios.h>
 #include <stdlib.h>
@@ -52,7 +54,8 @@ typedef struct			s_env
 {
 	struct s_elem		*first;
 	struct s_elem		*cursor;
-	struct s_elem		*bfr_suppr;;
+	struct s_elem		*bfr_suppr;
+	short				last_first;
 	char				*last_suppr;
 	struct termios		*data;
 }						t_env;

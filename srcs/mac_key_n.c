@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:50:00 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 19:33:34 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/03 15:40:02 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void		key_that(char key[3], t_env *env)
 	//	else if (key[0] == RETURN)
 	//		printf("RETURN\n");
 	//	else if (key[0] == ESC)
-	//		printf("ESC\n");
+	//		printf("plouf"RED"ESC\n\e[0m");
 	else if (key[0] == BACKSPACE || key[0] == DEL)
 		erase_elem(env);
 	else if (key[0] == SPACE)
@@ -51,10 +51,10 @@ int				manage_all(t_env *env)
 			return (-1);
 		else
 		{
+			key_that(buffer, env);
 			clear();
 			read_me();
 			print_elem(env->first);
-			key_that(buffer, env);
 		}
 
 	}

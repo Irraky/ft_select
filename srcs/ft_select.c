@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:00:28 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/03 12:24:21 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/03 15:08:02 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 void	select_one(t_env *env)
 {
-	env->cursor->select = 1;
+	if (env->cursor->select == 0)
+		env->cursor->select = 1;
+	else
+		env->cursor->select = 0;
+	env->cursor->cursor = 0;
 	env->cursor = env->cursor->next;
+	env->cursor->cursor = 1;
 }
 
 void	select_all(t_env *env)

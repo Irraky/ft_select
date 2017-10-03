@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:21:32 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/03 12:22:59 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/03 15:35:10 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void		read_me(void)
 {
-	printf(" ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ\n");
+	printf("\e[34m ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ  \n");
 	printf("᨟                        USER GUIDE                        ᨟\n");
 	printf("᨟                                                          ᨟\n");
 	printf("᨟      ↑       : prev               ↓     : next           ᨟\n");
@@ -24,7 +24,7 @@ void		read_me(void)
 	printf("᨟      ⌦  / ⌫  : erase elem         R     : restore last   ᨟\n");
 	printf("᨟      A       : select all         D     : unselect all   ᨟\n");
 	printf("᨟      SPACE BAR  : select / unselect                      ᨟\n");
-	printf(" ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ\n\n");
+	printf(" ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ  \n\n\e[0m");
 }
 
 void		print_elem(t_elem *first)
@@ -32,19 +32,17 @@ void		print_elem(t_elem *first)
 	t_elem	*elem;
 
 	elem = first;
-	if (first != first->next)
+	printf("\n");
+	while (elem != first->prev)
 	{
-		while (elem != first->prev)
-		{
-			if (elem->cursor == 1)
-				tputs(tgetstr("us", NULL), 1, &my_putchar);
-			if (elem->select)
-				tputs(tgetstr("mr", NULL), 1, &my_putchar);
-			printf("%s\n", elem->name);
-			elem = elem->next;
-			tputs(tgetstr("ue", NULL), 1, &my_putchar);
-			tputs(tgetstr("me", NULL), 1, &my_putchar);
-		}
+		if (elem->cursor == 1)
+			tputs(tgetstr("us", NULL), 1, &my_putchar);
+		if (elem->select == 1)
+			tputs(tgetstr("mr", NULL), 1, &my_putchar);
+		printf("%s\n", elem->name);
+		elem = elem->next;
+		tputs(tgetstr("ue", NULL), 1, &my_putchar);
+		tputs(tgetstr("me", NULL), 1, &my_putchar);
 	}
 	if (elem->cursor == 1)
 		tputs(tgetstr("us", NULL), 1, &my_putchar);

@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:20:43 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 19:29:23 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/03 15:44:15 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@ void		erase_elem(t_env *env)
 	if (env->cursor != env->cursor->next)
 	{
 		if (env->cursor == env->first)
+		{
 			env->first = env->first->next;
+			env->last_first = 1;
+		}
+		else
+			env->last_first = 0;
 		elem = env->cursor;
 		prev = elem->prev;
 		env->last_suppr = elem->name;
 		env->bfr_suppr = elem->prev;
-		printf("?%s", elem->prev->name);
 		elem->next->cursor = 1;
 		env->cursor = elem->next;
 		env->cursor->prev = prev;
@@ -61,7 +65,7 @@ void	recover_elem(t_env *env)
 		zombie->next = tmp;
 		zombie->prev = env->bfr_suppr;
 		env->cursor->cursor = 0;
-		if (env->bfr_suppr == env->first->prev)
+		if (env->last_first == 1)
 		{
 			env->first = zombie;
 		}
