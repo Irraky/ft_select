@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:21:32 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 18:59:49 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/03 12:22:59 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,18 +31,28 @@ void		print_elem(t_elem *first)
 {
 	t_elem	*elem;
 
+	elem = first;
 	if (first != first->next)
 	{
-		elem = first;
 		while (elem != first->prev)
 		{
+			if (elem->cursor == 1)
+				tputs(tgetstr("us", NULL), 1, &my_putchar);
+			if (elem->select)
+				tputs(tgetstr("mr", NULL), 1, &my_putchar);
 			printf("%s\n", elem->name);
 			elem = elem->next;
+			tputs(tgetstr("ue", NULL), 1, &my_putchar);
+			tputs(tgetstr("me", NULL), 1, &my_putchar);
 		}
-		printf("%s\n", elem->name);
 	}
-	else
-		printf("%s\n", first->name);
+	if (elem->cursor == 1)
+		tputs(tgetstr("us", NULL), 1, &my_putchar);
+	if (elem->select)
+		tputs(tgetstr("mr", NULL), 1, &my_putchar);
+	printf("%s\n", elem->name);
+	tputs(tgetstr("ue", NULL), 1, &my_putchar);
+	tputs(tgetstr("me", NULL), 1, &my_putchar);
 }
 
 void		init_win(char **av, t_env *env)
