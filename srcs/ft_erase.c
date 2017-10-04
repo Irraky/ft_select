@@ -21,12 +21,8 @@ void		erase_elem(t_env *env)
 	if (env->cursor != env->cursor->next)
 	{
 		if (env->cursor == env->first)
-		{
 			env->first = env->first->next;
-			env->last_first = 1;
-		}
-		else
-			env->last_first = 0;
+		env->last_first = (env->cursor == env->first) ? 1 : 0;
 		elem = env->cursor;
 		prev = elem->prev;
 		env->last_suppr = elem->name;
@@ -40,9 +36,8 @@ void		erase_elem(t_env *env)
 	}
 	else
 	{
-		free(env->cursor);
-		env->cursor = NULL;
-		exit (-1);
+		erase_all(env);
+		exit (1);
 	}
 }
 
@@ -71,5 +66,22 @@ void	recover_elem(t_env *env)
 		}
 		env->cursor = zombie;
 		env->bfr_suppr = NULL;
+	}
+}
+
+void	erase_all(t_env *env)
+{
+	t_elem		*elem;
+	t_elem		*tmp;
+
+	elem = env->first->prev;
+	elem->next = NULL;
+	elem = env->first;
+	while (elem)
+	{
+		tmp = elem->next;
+		free(elem);
+		elem = NULL;
+		elem = tmp;
 	}
 }

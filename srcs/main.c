@@ -23,13 +23,16 @@ int		clear(void)
 	return (1);
 }
 
-void	reset_shell(t_env *env)
+void	reset_shell(void)
 {
 	tputs(tgetstr("ve", NULL), 1, &my_putchar);
-	env->data->c_lflag = (ICANON | ECHO);
-	if (tcsetattr(0, 0, env->data) == -1)
-		exit (-1);
-	tputs(tgetstr("ve", NULL), 1, &my_putchar);
+	if (tcgetattr(0, orig_term) == -1)
+		exit(-1);
+	orig_term->c_lflag = (ICANON | ECHO);
+	if (tcsetattr(0, 0, orig_term) == -1)
+		exit(-1);
+//	if (tcsetattr(0, TCSADRAIN, orig_term) == -1)
+//		exit (-1);
 }
 
 int		init_shell(t_env *env)
@@ -59,11 +62,15 @@ int		main(int ac, char **av)
 	t_env	env;
 	if (ac > 1)
 	{
+		if (!win_size(ac - 1))
+			exit(-1);
+		get_signal();
 		if (init_shell(&env) == -1)
 			return (-1);
 		env.last_suppr = NULL;
+		orig_term = env.data;
 		init_win(&av[1], &env);
-		reset_shell(&env);
+		reset_shell();
 	}
 	else
 		write(2, "Uh uh, I need args to work...\n", 30);

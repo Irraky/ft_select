@@ -24,7 +24,7 @@ void		read_me(void)
 	printf("᨟      ⌦  / ⌫  : erase elem         R     : restore last   ᨟\n");
 	printf("᨟      A       : select all         D     : unselect all   ᨟\n");
 	printf("᨟      SPACE BAR  : select / unselect                      ᨟\n");
-	printf(" ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ  \n\n\e[0m");
+	printf(" ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ  \n\e[0m");
 }
 
 void		print_elem(t_elem *first)

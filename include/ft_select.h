@@ -33,11 +33,13 @@
 #define RED "\033[0;31m"
 #define ENd "\e[0m"
 
+#include <signal.h>
 #include <termios.h>
 #include <stdlib.h>
 #include <term.h>
 #include <sys/ioctl.h>
 #include <unistd.h>
+#include <stdio.h>
 
 struct termios			*orig_term;
 
@@ -66,9 +68,14 @@ typedef struct			s_env
 
 t_elem		*list(char **av);
 void		init_win(char **av, t_env *env);
+void		reset_shell(void);
 int			clear(void);
 void		read_me(void);
 void		print_elem(t_elem *first);
+void		erase_all(t_env *env);
+int			win_size(int argc);
+void		get_signal(void);
+int			init_shell(t_env *env);
 
 /*
 ** KEY_FUNCTIONS
@@ -82,6 +89,7 @@ void		select_all(t_env *env);
 void		unselect_all(t_env *env);
 void		erase_elem(t_env *env);
 void		recover_elem(t_env *env);
+void		esc(t_env *env);
 
 /*
 ** LIB_FUNCTIONS

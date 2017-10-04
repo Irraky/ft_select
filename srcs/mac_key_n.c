@@ -15,8 +15,6 @@
 
 static void		key_that(char key[3], t_env *env)
 {
-	//	if (key[0] == CTRLD)
-	//		printf("Ctrl+d, quit !\n");
 	if (key[0] == ARROW && (key[2] == UP || key[2] == DOWN))
 		up_or_down(key, env);
 	else if (key[0] == W || (key[0] == ARROW && key[2] == LEFT) ||
@@ -24,8 +22,8 @@ static void		key_that(char key[3], t_env *env)
 		top_or_bottom(key, env);
 	//	else if (key[0] == RETURN)
 	//		printf("RETURN\n");
-	//	else if (key[0] == ESC)
-	//		printf("plouf"RED"ESC\n\e[0m");
+	else if (key[0] == ESC)
+		esc(env);
 	else if (key[0] == BACKSPACE || key[0] == DEL)
 		erase_elem(env);
 	else if (key[0] == SPACE)

@@ -22,7 +22,9 @@ SRCS =  srcs/main.c \
 		srcs/ft_move.c \
 		srcs/mac_key_n.c \
 		srcs/init_win.c \
-		srcs/ft_erase.c
+		srcs/ft_erase.c \
+		srcs/ft_quit.c \
+		srcs/win.c
 
 OBJ = $(SRCS:.c=.o)
 CC = gcc
