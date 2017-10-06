@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 13:41:34 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 15:18:24 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/06 17:51:09 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,9 @@ int		clear(void)
 void	reset_shell(void)
 {
 	tputs(tgetstr("ve", NULL), 1, &my_putchar);
-	if (tcgetattr(0, orig_term) == -1)
-		exit(-1);
 	orig_term->c_lflag = (ICANON | ECHO);
 	if (tcsetattr(0, 0, orig_term) == -1)
 		exit(-1);
-//	if (tcsetattr(0, TCSADRAIN, orig_term) == -1)
-//		exit (-1);
 }
 
 int		init_shell(t_env *env)
@@ -51,6 +47,7 @@ int		init_shell(t_env *env)
 	env->data->c_lflag &= ~(ECHO);
 	env->data->c_cc[VMIN] = 1;
 	env->data->c_cc[VTIME] = 100;
+	env->data->c_lflag |= ISIG;
 	if (tcsetattr(0, TCSADRAIN, env->data) == -1)
 		return (-1);
 	tputs(tgetstr("vi", NULL), 1, &my_putchar);

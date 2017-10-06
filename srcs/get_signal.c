@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/06 13:54:49 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 15:45:15 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/06 19:43:15 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void		cont_prg(int sign)
 	get_signal();
 	env = NULL;
 	init_shell(env);
-	ft_putstr_fd("Press a key", 2);
+	ft_putstr_fd("Press any key", 2);
 	erase_all(env);
 	free(env->data);
 }
@@ -32,9 +32,9 @@ static void		stop_prg(int sign)
 	(void)sign;
 	reset_shell();
 	tputs(tgetstr("cl", NULL), 1, &my_putchar);
-	signal(SIGTSTP, SIG_DFL);
 	buff[0] = orig_term->c_cc[VSUSP];
 	buff[1] = 0;
+	signal(SIGTSTP, SIG_DFL);
 	ioctl(0, TIOCSTI, buff);
 }
 
@@ -65,6 +65,6 @@ void			get_signal(void)
 	signal(SIGALRM, exit_prg);
 	signal(SIGUSR1, exit_prg);
 	signal(SIGUSR2, exit_prg);
-	signal(SIGCONT, cont_prg);
+//	signal(SIGCONT, cont_prg);
 	signal(SIGTSTP, stop_prg);
 }

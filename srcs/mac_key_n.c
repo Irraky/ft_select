@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:50:00 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 16:39:42 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/06 18:30:57 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int				manage_all(t_env *env)
 			read_me();
 			print_elem(env->first);
 		}
-
 	}
 	return (0);
 }

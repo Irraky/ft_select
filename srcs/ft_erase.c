@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:20:43 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/03 15:44:15 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/06 17:20:15 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void		erase_elem(t_env *env)
 	else
 	{
 		erase_all(env);
+		reset_shell();
 		exit (1);
 	}
 }
