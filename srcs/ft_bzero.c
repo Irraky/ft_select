@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_move.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/02 16:46:45 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 16:48:14 by drecours         ###   ########.fr       */
+/*   Created: 2016/11/21 14:30:30 by drecours          #+#    #+#             */
+/*   Updated: 2017/10/06 16:11:35 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_select.h"
 
-void		up_or_down(char *key, t_env *env)
+void	ft_bzero(void *s, size_t n)
 {
-	env->cursor->cursor = 0;
-	env->cursor = (key[2] == DOWN) ? env->cursor->next : env->cursor->prev;
-	env->cursor->cursor = 1;
+	size_t		i;
+
+	i = 0;
+	while (i < n)
+	{
+		((char*)s)[i] = 0;
+		i++;
+	}
 }
-
-void		top_or_bottom(char *key, t_env *env)
-{
-	env->cursor->cursor = 0;
-	if (key[0] == W || key[2] == LEFT)
-		env->cursor = env->first;
-	else
-		env->cursor = env->first->prev;
-	env->cursor->cursor = 1;
-}
-
-

@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/06 13:54:49 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 15:15:29 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/06 15:45:15 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static void		stop_prg(int sign)
 
 void			exit_prg(int sign)
 {
-	printf("pute pute");
 	tputs(tgetstr("cl", NULL), 1, &my_putchar);
 	reset_shell();
 	exit(sign);

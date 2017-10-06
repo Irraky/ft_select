@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 11:41:37 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 15:21:18 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/06 16:35:21 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 #define S 115
 #define RETURN 10
 #define ESC 27
-#define BACKSPACE 126
-#define DEL 127
+#define BACKSPACE 127
+#define DEL 126
 #define R 114
 #define A 97
 #define D 100
@@ -91,6 +91,7 @@ void		erase_elem(t_env *env);
 void		recover_elem(t_env *env);
 //void		esc(t_env *env);
 void		ft_return(t_env *env);
+void		exit_prg(int sign);
 
 /*
 ** LIB_FUNCTIONS
@@ -102,5 +103,6 @@ void	*ft_memset(void *b, int c, size_t len);
 int		ft_strlen(const char *str);
 void	ft_putstr_fd(const char *str, int fd);
 void	ft_putendl_fd(const char *str, int fd);
+void	ft_bzero(void *s, size_t n);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: drecours <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/29 10:51:51 by drecours          #+#    #+#              #
-#    Updated: 2017/10/06 15:19:23 by drecours         ###   ########.fr        #
+#    Updated: 2017/10/06 16:13:54 by drecours         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ SRCS =  srcs/main.c \
 		srcs/ft_putstr_fd.c \
 		srcs/ft_putendl_fd.c \
 		srcs/get_signal.c \
-		srcs/win.c
+		srcs/win.c \
+		srcs/ft_bzero.c
 	#	srcs/ft_quit.c \ 
 
 OBJ = $(SRCS:.c=.o)

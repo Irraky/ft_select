@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/05 13:33:08 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/05 16:18:12 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/06 15:40:27 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,14 @@ void		ft_return(t_env *env)
 	tmp = env->first->prev;
 	tmp->next = NULL;
 	tmp = env->first;
+	tputs(tgetstr("cl", NULL), 1, &my_putchar);
 	while (tmp && tmp->name)
 	{
 		if (tmp->select == 1)
 		{
 			if (space == 1)
-				write(1, " ", 1);
-			write(1, tmp->name, ft_strlen(tmp->name));
+				write(STDOUT_FILENO, " ", 1);
+			write(STDOUT_FILENO, tmp->name, ft_strlen(tmp->name));
 			space = 1;
 		}
 		tmp2 = tmp->next;

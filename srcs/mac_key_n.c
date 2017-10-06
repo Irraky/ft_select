@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:50:00 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 15:10:45 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/06 16:39:42 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void		key_that(char key[3], t_env *env)
 		top_or_bottom(key, env);
 	else if (key[0] == RETURN)
 		ft_return(env);
-	else if (key[0] == ESC)
-		esc(env);
 	else if (key[0] == BACKSPACE || key[0] == DEL)
 		erase_elem(env);
+	else if (key[0] == ESC && key[1] == 0)
+		esc(env);
 	else if (key[0] == SPACE)
 		select_one(env);
 	else if (key[0] == R)
@@ -51,11 +51,11 @@ int				manage_all(t_env *env)
 
 	while (1)
 	{
-		buffer[0] = '\0';
-		buffer[1] = '\0';
-		buffer[2] = '\0';
+		ft_bzero(&buffer, 3);
 		if (read(0, buffer, 3) < 0)
 			return (-1);
+		if (buffer[0] == CTRLD)
+			exit_prg(1);
 		else
 		{
 			key_that(buffer, env);
