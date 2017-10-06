@@ -6,12 +6,21 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:50:00 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/03 15:40:02 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/06 15:10:45 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_select.h"
 #include <stdio.h>
+
+void		esc(t_env *env)
+{
+	tputs(tgetstr("cl", NULL), 1, &my_putchar);
+	reset_shell();
+	erase_all(env);
+	free(env->data);
+	exit(0);
+}
 
 static void		key_that(char key[3], t_env *env)
 {
@@ -20,8 +29,8 @@ static void		key_that(char key[3], t_env *env)
 	else if (key[0] == W || (key[0] == ARROW && key[2] == LEFT) ||
 			key[0] == S || (key[0] == ARROW && key[2] == RIGHT))
 		top_or_bottom(key, env);
-	//	else if (key[0] == RETURN)
-	//		printf("RETURN\n");
+	else if (key[0] == RETURN)
+		ft_return(env);
 	else if (key[0] == ESC)
 		esc(env);
 	else if (key[0] == BACKSPACE || key[0] == DEL)

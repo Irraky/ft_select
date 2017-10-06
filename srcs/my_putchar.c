@@ -3,6 +3,6 @@
 
 int		my_putchar(int c)
 {
-	write(1, &c, 1);
+	write(STDIN_FILENO, &c, 1);
 	return (c);
 }

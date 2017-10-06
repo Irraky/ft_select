@@ -6,7 +6,7 @@
 #    By: drecours <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/29 10:51:51 by drecours          #+#    #+#              #
-#    Updated: 2017/10/02 18:39:21 by drecours         ###   ########.fr        #
+#    Updated: 2017/10/06 15:19:23 by drecours         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,16 @@ SRCS =  srcs/main.c \
 		srcs/ft_memset.c \
 		srcs/ft_select.c \
 		srcs/ft_move.c \
+		srcs/ft_strlen.c \
 		srcs/mac_key_n.c \
 		srcs/init_win.c \
 		srcs/ft_erase.c \
-		srcs/ft_quit.c \
+		srcs/ft_return.c \
+		srcs/ft_putstr_fd.c \
+		srcs/ft_putendl_fd.c \
+		srcs/get_signal.c \
 		srcs/win.c
+	#	srcs/ft_quit.c \ 
 
 OBJ = $(SRCS:.c=.o)
 CC = gcc

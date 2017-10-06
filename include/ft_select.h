@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 11:41:37 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/03 15:42:01 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/06 15:21:18 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ void		select_all(t_env *env);
 void		unselect_all(t_env *env);
 void		erase_elem(t_env *env);
 void		recover_elem(t_env *env);
-void		esc(t_env *env);
+//void		esc(t_env *env);
+void		ft_return(t_env *env);
 
 /*
 ** LIB_FUNCTIONS
@@ -98,5 +99,8 @@ void		esc(t_env *env);
 int		my_putchar(int c);
 void	*ft_memalloc(size_t size);
 void	*ft_memset(void *b, int c, size_t len);
+int		ft_strlen(const char *str);
+void	ft_putstr_fd(const char *str, int fd);
+void	ft_putendl_fd(const char *str, int fd);
 
 #endif
