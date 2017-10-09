@@ -20,9 +20,9 @@ void	erase_elem(t_env *env)
 
 	if (env->cursor != env->cursor->next)
 	{
+		env->last_first = (env->cursor == env->first) ? 1 : 0;
 		if (env->cursor == env->first)
 			env->first = env->first->next;
-		env->last_first = (env->cursor == env->first) ? 1 : 0;
 		elem = env->cursor;
 		prev = elem->prev;
 		env->last_suppr = elem->name;
