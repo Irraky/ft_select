@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 11:41:37 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 16:35:21 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 12:12:44 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void		erase_all(t_env *env);
 int			win_size(int argc);
 void		get_signal(void);
 int			init_shell(t_env *env);
+int			main(int argc, char **argv);
 
 /*
 ** KEY_FUNCTIONS
@@ -89,7 +90,6 @@ void		select_all(t_env *env);
 void		unselect_all(t_env *env);
 void		erase_elem(t_env *env);
 void		recover_elem(t_env *env);
-//void		esc(t_env *env);
 void		ft_return(t_env *env);
 void		exit_prg(int sign);
 

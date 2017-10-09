@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 13:41:34 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 17:51:09 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 12:14:07 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int		clear(void)
 void	reset_shell(void)
 {
 	tputs(tgetstr("ve", NULL), 1, &my_putchar);
-	orig_term->c_lflag = (ICANON | ECHO);
-	if (tcsetattr(0, 0, orig_term) == -1)
+	if (tcsetattr(0, TCSADRAIN, orig_term) == -1)
 		exit(-1);
 }
 
@@ -35,8 +34,6 @@ int		init_shell(t_env *env)
 {
 	char	*name_term;
 
-	if (!(env->data = malloc(sizeof(struct termios))))
-		return (-1);
 	if (!(name_term = getenv("TERM")))
 		return (-1);
 	if (tgetent(0, name_term) != 1)
@@ -62,6 +59,8 @@ int		main(int ac, char **av)
 		if (!win_size(ac - 1))
 			exit(-1);
 		get_signal();
+		if (!(env.data = malloc(sizeof(struct termios))))
+			return (-1);
 		if (init_shell(&env) == -1)
 			return (-1);
 		env.last_suppr = NULL;
