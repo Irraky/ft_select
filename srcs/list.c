@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 13:13:41 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/02 13:16:08 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 13:33:44 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_elem	*new_elem(t_elem *elem, char *str)
 	t_elem	*new;
 
 	if (!(new = (t_elem*)malloc(sizeof(t_elem))))
-		exit (-1);
+		exit(-1);
 	new->name = str;
 	new->cursor = 0;
 	new->select = 0;
@@ -26,7 +26,6 @@ static t_elem	*new_elem(t_elem *elem, char *str)
 	new->next = NULL;
 	if (elem)
 		elem->next = new;
-
 	return (new);
 }
 

@@ -6,14 +6,14 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:20:43 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 17:20:15 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 13:34:16 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_select.h"
 #include <stdio.h>
 
-void		erase_elem(t_env *env)
+void	erase_elem(t_env *env)
 {
 	t_elem		*elem;
 	t_elem		*prev;
@@ -38,7 +38,7 @@ void		erase_elem(t_env *env)
 	{
 		erase_all(env);
 		reset_shell();
-		exit (1);
+		exit(1);
 	}
 }
 

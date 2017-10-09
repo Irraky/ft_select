@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 13:41:34 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 12:14:07 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 12:24:14 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int		init_shell(t_env *env)
 int		main(int ac, char **av)
 {
 	t_env	env;
+
 	if (ac > 1)
 	{
 		if (!win_size(ac - 1))

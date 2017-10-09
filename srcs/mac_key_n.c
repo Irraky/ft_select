@@ -6,14 +6,13 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:50:00 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 18:30:57 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 12:57:48 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_select.h"
-#include <stdio.h>
 
-void		esc(t_env *env)
+static void		esc(t_env *env)
 {
 	tputs(tgetstr("cl", NULL), 1, &my_putchar);
 	reset_shell();

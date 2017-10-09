@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 16:46:45 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 16:48:14 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 13:34:56 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,3 @@ void		top_or_bottom(char *key, t_env *env)
 		env->cursor = env->first->prev;
 	env->cursor->cursor = 1;
 }
-
-

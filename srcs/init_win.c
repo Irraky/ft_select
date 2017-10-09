@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:21:32 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/06 13:49:38 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 13:31:56 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 
 void		read_me(void)
 {
-	ft_putstr_fd("\e[34m ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ  \n", 2);
-	ft_putstr_fd("᨟                        USER GUIDE                        ᨟\n", 2);
-	ft_putstr_fd("᨟                                                          ᨟\n", 2);
-	ft_putstr_fd("᨟      ↑       : prev               ↓     : next           ᨟\n", 2);
-	ft_putstr_fd("᨟      W / ←   : begin              S / → : end            ᨟\n", 2);
-	ft_putstr_fd("᨟      ↲       : return args        ESC   : quit           ᨟\n", 2);
-	ft_putstr_fd("᨟      ⌦  / ⌫  : erase elem         R     : restore last   ᨟\n", 2);
-	ft_putstr_fd("᨟      A       : select all         D     : unselect all   ᨟\n", 2);
-	ft_putstr_fd("᨟      SPACE BAR  : select / unselect                      ᨟\n", 2);
-	ft_putstr_fd(" ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ  \n\e[0m", 2);
+	ft_putstr_fd("\e[36m ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ", 2);
+	ft_putstr_fd("ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ  \n", 2);
+	ft_putstr_fd("᨟                     USER GUIDE                     ᨟\n", 2);
+	ft_putstr_fd("᨟                                                    ᨟\n", 2);
+	ft_putstr_fd("᨟    ↑       : prev             ↓     : next         ᨟\n", 2);
+	ft_putstr_fd("᨟    W / ←   : begin            S / → : end          ᨟\n", 2);
+	ft_putstr_fd("᨟    ↲       : return args      ESC   : quit         ᨟\n", 2);
+	ft_putstr_fd("᨟    ⌦  / ⌫  : erase elem       R     : restore last ᨟\n", 2);
+	ft_putstr_fd("᨟    A       : select all       D     : unselect all ᨟\n", 2);
+	ft_putstr_fd("᨟    SPACE BAR  : select / unselect                  ᨟\n", 2);
+	ft_putstr_fd(" ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ", 2);
+	ft_putstr_fd("ᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖᨖ  \n\e[0m", 2);
 }
 
 void		print_elem(t_elem *first)
