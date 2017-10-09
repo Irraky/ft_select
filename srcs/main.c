@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 13:41:34 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 12:24:14 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 14:11:16 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	reset_shell(void)
 {
 	tputs(tgetstr("ve", NULL), 1, &my_putchar);
 	if (tcsetattr(0, TCSADRAIN, orig_term) == -1)
-		exit(-1);
+		ft_exit("Probleme de configuration.", -1);
 }
 
 int		init_shell(t_env *env)
@@ -35,18 +35,18 @@ int		init_shell(t_env *env)
 	char	*name_term;
 
 	if (!(name_term = getenv("TERM")))
-		return (-1);
+		ft_exit("Pas de detection du terminal.", -1);
 	if (tgetent(0, name_term) != 1)
-		return (-1);
+		ft_exit("Probleme de configuration.", -1);
 	if (tcgetattr(0, env->data) == -1)
-		return (-1);
+		ft_exit("Probleme de configuration.", -1);
 	env->data->c_lflag &= ~(ICANON);
 	env->data->c_lflag &= ~(ECHO);
 	env->data->c_cc[VMIN] = 1;
 	env->data->c_cc[VTIME] = 100;
 	env->data->c_lflag |= ISIG;
 	if (tcsetattr(0, TCSADRAIN, env->data) == -1)
-		return (-1);
+		ft_exit("Probleme de configuration.", -1);
 	tputs(tgetstr("vi", NULL), 1, &my_putchar);
 	return (0);
 }
@@ -61,9 +61,8 @@ int		main(int ac, char **av)
 			exit(-1);
 		get_signal();
 		if (!(env.data = malloc(sizeof(struct termios))))
-			return (-1);
-		if (init_shell(&env) == -1)
-			return (-1);
+			ft_exit("Probleme de malloc.", -1);
+		init_shell(&env);
 		env.last_suppr = NULL;
 		orig_term = env.data;
 		init_win(&av[1], &env);

@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:20:43 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 13:34:16 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 14:04:25 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	recover_elem(t_env *env)
 	{
 		tmp = env->bfr_suppr->next;
 		if (!(zombie = (t_elem*)malloc(sizeof(t_elem))))
-			exit(-1);
+			ft_exit("Probleme de malloc.", -1);
 		env->bfr_suppr->next = zombie;
 		tmp->prev = zombie;
 		zombie->name = env->last_suppr;

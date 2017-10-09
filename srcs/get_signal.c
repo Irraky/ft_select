@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/06 13:54:49 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 13:33:11 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 14:08:59 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ static void		cont_prg(int sign)
 	(void)sign;
 	get_signal();
 	if (!(env.data = (struct termios*)malloc(sizeof(struct termios))))
-		exit(-1);
-	if (init_shell(&env) == -1)
-		exit(-1);
+		ft_exit("Probleme de malloc.", -1);
+	init_shell(&env);
 	ioctl(0, TIOCSTI, "k");
 }
 

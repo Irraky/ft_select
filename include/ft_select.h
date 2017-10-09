@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 11:41:37 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 13:38:00 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/09 14:03:07 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@ int						ft_strlen(const char *str);
 void					ft_putstr_fd(const char *str, int fd);
 void					ft_putendl_fd(const char *str, int fd);
 void					ft_bzero(void *s, size_t n);
+void					ft_exit(char *str, int sign);
 
 #endif
