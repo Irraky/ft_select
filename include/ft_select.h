@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 11:41:37 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 14:03:07 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/24 20:01:41 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int						win_size(int argc);
 void					get_signal(void);
 int						init_shell(t_env *env);
 int						main(int argc, char **argv);
+void					esc(t_env *env, int ext);
 
 /*
 ** KEY_FUNCTIONS

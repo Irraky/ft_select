@@ -6,12 +6,11 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:21:32 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 13:31:56 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/24 17:34:06 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_select.h"
-#include <stdio.h>
 
 void		read_me(void)
 {

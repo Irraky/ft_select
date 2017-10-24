@@ -6,12 +6,11 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 13:13:41 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 14:12:07 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/24 17:34:15 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_select.h"
-#include <stdio.h>
 
 static t_elem	*new_elem(t_elem *elem, char *str)
 {

@@ -6,19 +6,19 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 17:50:00 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 12:57:48 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/24 20:01:09 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_select.h"
 
-static void		esc(t_env *env)
+void			esc(t_env *env, int ext)
 {
 	tputs(tgetstr("cl", NULL), 1, &my_putchar);
 	reset_shell();
 	erase_all(env);
 	free(env->data);
-	exit(0);
+	exit(ext);
 }
 
 static void		key_that(char key[3], t_env *env)
@@ -33,7 +33,7 @@ static void		key_that(char key[3], t_env *env)
 	else if (key[0] == BACKSPACE || key[0] == DEL)
 		erase_elem(env);
 	else if (key[0] == ESC && key[1] == 0)
-		esc(env);
+		esc(env, 0);
 	else if (key[0] == SPACE)
 		select_one(env);
 	else if (key[0] == R)

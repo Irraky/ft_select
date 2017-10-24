@@ -6,12 +6,11 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/29 13:41:34 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 14:11:16 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/24 17:34:32 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/ft_select.h"
-#include <stdio.h>
 
 int		clear(void)
 {
