@@ -6,7 +6,7 @@
 /*   By: drecours <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/02 18:20:43 by drecours          #+#    #+#             */
-/*   Updated: 2017/10/09 14:04:25 by drecours         ###   ########.fr       */
+/*   Updated: 2017/10/24 14:23:31 by drecours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	erase_elem(t_env *env)
 	else
 	{
 		erase_all(env);
+		tputs(tgetstr("cl", NULL), 1, &my_putchar);
 		reset_shell();
 		exit(1);
 	}
